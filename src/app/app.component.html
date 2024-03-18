@@ -172,7 +172,9 @@
         class="event-list"
         (cdkDropListDropped)="drop($event)">
         @for (item of events; track item) {
-        <div class="events-box" cdkDrag>
+        <div class="events-box" cdkDrag tabindex="0"
+             (keyup.arrowup)="moveEvent(item, true)"
+             (keyup.arrowdown)="moveEvent(item, false)">
           <p>{{item.name}}</p>
         </div>
         <div *ngIf="isRevealAnswer">

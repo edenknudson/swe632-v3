@@ -55,6 +55,21 @@ export class AppComponent implements OnInit {
     this.events = shuffled.slice(0, 4);
   }
 
+  moveEvent(event: Event, isUp: boolean) {
+    let index = this.events.findIndex((x) => x === event);
+    if (!isUp && index < 3 || isUp && index > 0) {
+      let newIndex;
+      if (isUp) {
+        newIndex = index - 1;
+      } else {
+        newIndex = index + 1
+      }
+      const temp = this.events[index];
+      this.events[index] = this.events[newIndex];
+      this.events[newIndex] = temp;
+    }
+  }
+
   drop(event: CdkDragDrop<Event[]>) {
     if (event.previousContainer === event.container) {
       moveItemInArray(event.container.data, event.previousIndex, event.currentIndex);
