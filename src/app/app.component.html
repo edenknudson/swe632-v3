@@ -150,6 +150,11 @@
     margin: 5px;
   }
 
+  .arrow {
+    display: inline-block;
+    padding-left: 47%;
+  }
+
 </style>
 
 <main class="main">
@@ -180,6 +185,9 @@
     <h1>TIMELINE</h1>
     <p>Place the events in the correct order</p>
     <p><b>Past</b></p>
+    <div class="arrow">
+      <mat-icon aria-hidden="false" aria-label="up" fontIcon="arrow_upward"></mat-icon>
+    </div>
     <div class="events-container">
       <div
         cdkDropList
@@ -198,7 +206,7 @@
                (keyup.arrowup)="moveEvent(item, true)"
                (keyup.arrowdown)="moveEvent(item, false)">
             <p>{{item.name}}</p>
-            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="drag_handle" [ngStyle]="{'color':'white'}"></mat-icon>
+            <mat-icon aria-hidden="false" aria-label="drag" fontIcon="drag_handle" [ngStyle]="{'color':'white'}"></mat-icon>
           </div>
           <div *ngIf="isRevealAnswer"
                class="events-box"
@@ -225,6 +233,9 @@
           </div>
         </div>
       </div>
+    </div>
+    <div class="arrow">
+      <mat-icon aria-hidden="false" aria-label="up" fontIcon="arrow_downward"></mat-icon>
     </div>
     <p><b>Present</b></p>
     <div class="button-bar">
