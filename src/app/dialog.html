@@ -1,11 +1,32 @@
 <style>
+  :host {
+    --gray-900: oklch(19.37% 0.006 300.98);
+    --gray-700: oklch(36.98% 0.014 302.71);
+    --gray-400: oklch(70.9% 0.015 304.04);
+
+    font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+      Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji",
+      "Segoe UI Symbol";
+    box-sizing: border-box;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
   mat-icon {
     display: inline-block;
     padding-right: 1rem;
   }
 
   p {
-    display: inline-block;
+    text-align: center;
+    display: block;
+    color: var(--gray-700);
+  }
+
+  .center-values {
+    width:100%;
+    display: flex;
+    justify-content: center;
   }
 </style>
 
@@ -14,8 +35,12 @@
     <mat-icon aria-hidden="false" aria-label="Correct" fontIcon="check_circle" [ngStyle]="{'color':'green'}"></mat-icon>
     <p>Correct! You win!</p>
   </div>
-  <div *ngIf="!isCorrect" class="container">
-    <mat-icon aria-hidden="false" aria-label="Correct" fontIcon="block" [ngStyle]="{'color':'red'}"></mat-icon>
-    <p>Incorrect, try again</p>
+  <div *ngIf="!isCorrect">
+    <div class="center-values" style="display: inline-flex">
+      <mat-icon aria-hidden="false" aria-label="Correct" fontIcon="block" [ngStyle]="{'color':'red'}"></mat-icon>
+      <p>Incorrect</p>
+    </div>
+    <p *ngIf="lives > 0">You have {{ lives }} more {{ lives != 1 ? 'guesses' : 'guess'}}</p>
+    <p *ngIf="lives == 0">You lose. Try again next time.</p>
   </div>
 </mat-dialog-content>

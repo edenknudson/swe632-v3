@@ -23,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 export interface DialogData {
   isCorrect: boolean;
+  lives: number;
 }
 
 @Component({
@@ -37,6 +38,7 @@ export class AppComponent implements OnInit {
   isCorrect = false;
   isRevealAnswer = false;
   events = EventDetails;
+  lives = 4;
 
   constructor(public dialog: MatDialog) {}
 
@@ -48,6 +50,7 @@ export class AppComponent implements OnInit {
     this.isCheckClicked = false;
     this.isCorrect = false;
     this.isRevealAnswer = false;
+    this.lives = 4;
     this.shuffleEvents();
   }
 
@@ -101,6 +104,7 @@ export class AppComponent implements OnInit {
   }
 
   giveUp() {
+    this.lives = 0;
     this.isCorrect = true;
     this.events.sort(compareDate);
     this.revealAnswer();
@@ -115,10 +119,16 @@ export class AppComponent implements OnInit {
     this.dialog.open(DialogComponent, {
           data: {
             isCorrect: this.isCorrect,
+            lives: this.lives - 1
           },
         });
     if (this.isCorrect) {
       this.revealAnswer();
+    } else {
+      this.lives--;
+      if (this.lives == 0) {
+        this.giveUp();
+      }
     }
   }
 }
@@ -131,9 +141,11 @@ export class AppComponent implements OnInit {
 })
 export class DialogComponent {
   isCorrect: boolean;
+  lives: number;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {
     this.isCorrect = data.isCorrect;
+    this.lives = data.lives;
   }
 }
 

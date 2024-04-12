@@ -179,6 +179,7 @@
         </svg>
       </a>
     </div>
+
   </div>
   <div class="content">
     <h1>TIMELINE</h1>
@@ -242,8 +243,12 @@
       <button *ngIf="!isCorrect" mat-raised-button (click)="giveUp()">Give Up</button>
       <button *ngIf="isCorrect" mat-raised-button (click)="newGame()">New Game</button>
     </div>
-    <p *ngIf="isCheckClicked && isCorrect">Correct! You win!</p>
-    <p *ngIf="isCheckClicked && !isCorrect">Incorrect, try again</p>
+    <div class="button-bar" style="margin-top: .75rem;">
+      <mat-icon *ngIf="lives > 3" aria-hidden="false" aria-label="First life" fontIcon="circle" [ngStyle]="{'color':'#904914'}"></mat-icon>
+      <mat-icon *ngIf="lives > 2" aria-hidden="false" aria-label="Second life" fontIcon="circle" [ngStyle]="{'color':'#412234'}"></mat-icon>
+      <mat-icon *ngIf="lives > 1" aria-hidden="false" aria-label="Third life" fontIcon="circle" [ngStyle]="{'color':'#1A3E61'}"></mat-icon>
+      <mat-icon *ngIf="lives > 0" aria-hidden="false" aria-label="Fourth life" fontIcon="circle" [ngStyle]="{'color':'#243E36'}"></mat-icon>
+    </div>
   </div>
 </main>
 <router-outlet />
