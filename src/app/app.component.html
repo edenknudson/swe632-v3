@@ -69,7 +69,6 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    cursor: move;
     background: #af91c7;
     font-size: 16px;
     border-radius: 25px;
@@ -142,7 +141,7 @@
   <div class="header">
     <div class="social-links horizontal">
       <a
-        href="https://github.com/edenknudson/swe632-v1"
+        href="https://github.com/edenknudson/swe632-v2"
         aria-label="Github Repo"
         target="_blank"
         rel="noopener"
@@ -173,9 +172,15 @@
         class="event-list"
         (cdkDropListDropped)="drop($event)">
         @for (item of events; track item) {
-        <div class="events-box" cdkDrag tabindex="0"
+        <div *ngIf="!isRevealAnswer" cdkDrag
+             class="events-box" tabindex="0" style="cursor: move;"
              (keyup.arrowup)="moveEvent(item, true)"
              (keyup.arrowdown)="moveEvent(item, false)">
+          <p>{{item.name}}</p>
+          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="drag_handle"></mat-icon>
+        </div>
+        <div *ngIf="isRevealAnswer"
+             class="events-box">
           <p>{{item.name}}</p>
         </div>
         <div *ngIf="isRevealAnswer">

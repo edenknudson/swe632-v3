@@ -19,6 +19,7 @@ import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { Event, EventDetails } from './app.component.constants';
+import { MatIconModule } from '@angular/material/icon';
 
 export interface DialogData {
   isCorrect: boolean;
@@ -27,7 +28,7 @@ export interface DialogData {
 @Component({
   selector: 'app-root',
   standalone: true,
-  imports: [RouterOutlet, CommonModule, MatExpansionModule, CdkDropListGroup, CdkDropList, CdkDrag, MatButtonModule, ScrollingModule],
+  imports: [RouterOutlet, CommonModule, MatExpansionModule, CdkDropListGroup, CdkDropList, CdkDrag, MatButtonModule, ScrollingModule, MatIconModule],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
