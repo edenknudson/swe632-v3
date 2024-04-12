@@ -100,6 +100,12 @@ export class AppComponent implements OnInit {
     }
   }
 
+  giveUp() {
+    this.isCorrect = true;
+    this.events.sort(compareDate);
+    this.revealAnswer();
+  }
+
   revealAnswer() {
     this.isRevealAnswer = !this.isRevealAnswer;
   }
@@ -129,4 +135,16 @@ export class DialogComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {
     this.isCorrect = data.isCorrect;
   }
+}
+
+function compareDate(a: Event, b: Event) {
+  const aDate = a.dateEnding == 'AD' ? a.date : a.date*-1;
+  const bDate = b.dateEnding == 'AD' ? b.date : b.date*-1;
+  if (aDate < bDate){
+    return -1;
+  }
+  if (aDate > bDate){
+    return 1;
+  }
+  return 0;
 }

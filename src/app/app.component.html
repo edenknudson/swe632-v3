@@ -109,7 +109,7 @@
     width: 400px;
 
     position: fixed;
-    top: 25%;
+    top: 18%;
     left: 50%;
     margin-top: -100px;
     margin-left: -200px;
@@ -130,7 +130,6 @@
     display: flex;
     align-items: center;
     gap: 0.73rem;
-    margin-top: 1.5rem;
   }
 
   .social-links path {
@@ -240,6 +239,7 @@
     <p><b>Present</b></p>
     <div class="button-bar">
       <button *ngIf="!isCorrect" mat-raised-button (click)="submit()">Submit</button>
+      <button *ngIf="!isCorrect" mat-raised-button (click)="giveUp()">Give Up</button>
       <button *ngIf="isCorrect" mat-raised-button (click)="newGame()">New Game</button>
     </div>
     <p *ngIf="isCheckClicked && isCorrect">Correct! You win!</p>
