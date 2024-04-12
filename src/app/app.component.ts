@@ -54,6 +54,8 @@ export class AppComponent implements OnInit {
   shuffleEvents() {
     const shuffled = EventDetails.sort(() => 0.5 - Math.random())
     this.events = shuffled.slice(0, 4);
+    let indexValue = 0;
+    this.events.forEach(event => {event.index = indexValue++});
   }
 
   moveEvent(event: Event, isUp: boolean) {
@@ -119,7 +121,7 @@ export class AppComponent implements OnInit {
   selector: 'dialog',
   templateUrl: 'dialog.html',
   standalone: true,
-  imports: [MatDialogTitle, MatDialogContent, CommonModule],
+  imports: [MatDialogTitle, MatDialogContent, CommonModule, MatIconModule],
 })
 export class DialogComponent {
   isCorrect: boolean;

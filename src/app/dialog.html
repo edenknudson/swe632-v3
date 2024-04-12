@@ -1,4 +1,21 @@
+<style>
+  mat-icon {
+    display: inline-block;
+    padding-right: 1rem;
+  }
+
+  p {
+    display: inline-block;
+  }
+</style>
+
 <mat-dialog-content>
-  <p *ngIf="isCorrect">Correct! You win!</p>
-  <p *ngIf="!isCorrect">Incorrect, try again</p>
+  <div *ngIf="isCorrect">
+    <mat-icon aria-hidden="false" aria-label="Correct" fontIcon="check_circle" [ngStyle]="{'color':'green'}"></mat-icon>
+    <p>Correct! You win!</p>
+  </div>
+  <div *ngIf="!isCorrect" class="container">
+    <mat-icon aria-hidden="false" aria-label="Correct" fontIcon="block" [ngStyle]="{'color':'red'}"></mat-icon>
+    <p>Incorrect, try again</p>
+  </div>
 </mat-dialog-content>

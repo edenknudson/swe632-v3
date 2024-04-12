@@ -69,7 +69,6 @@
     align-items: center;
     justify-content: space-between;
     box-sizing: border-box;
-    background: #af91c7;
     font-size: 16px;
     border-radius: 25px;
     text-align: center;
@@ -79,6 +78,22 @@
     color: white;
     margin: 0 auto;
     display: table;
+  }
+
+  .event-orange {
+    background: #904914;
+  }
+
+  .event-purple {
+    background: #412234;
+  }
+
+  .event-blue {
+    background: #1A3E61;
+  }
+
+  .event-green {
+    background: #243E36;
   }
 
   .cdk-drag-preview {
@@ -171,32 +186,44 @@
         [cdkDropListData]="events"
         class="event-list"
         (cdkDropListDropped)="drop($event)">
-        @for (item of events; track item) {
-        <div *ngIf="!isRevealAnswer" cdkDrag
-             class="events-box" tabindex="0" style="cursor: move;"
-             (keyup.arrowup)="moveEvent(item, true)"
-             (keyup.arrowdown)="moveEvent(item, false)">
-          <p>{{item.name}}</p>
-          <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="drag_handle"></mat-icon>
+        <div *ngFor="let item of events; track item">
+          <div *ngIf="!isRevealAnswer" cdkDrag
+               [ngClass]="{
+                  'event-orange': item.index == 0,
+                  'event-purple': item.index == 1,
+                  'event-blue': item.index == 2,
+                  'event-green': item.index == 3,
+               }"
+               class="events-box" tabindex="0" style="cursor: move;"
+               (keyup.arrowup)="moveEvent(item, true)"
+               (keyup.arrowdown)="moveEvent(item, false)">
+            <p>{{item.name}}</p>
+            <mat-icon aria-hidden="false" aria-label="Example home icon" fontIcon="drag_handle" [ngStyle]="{'color':'white'}"></mat-icon>
+          </div>
+          <div *ngIf="isRevealAnswer"
+               class="events-box"
+               [ngClass]="{
+                  'event-orange': item.index == 0,
+                  'event-purple': item.index == 1,
+                  'event-blue': item.index == 2,
+                  'event-green': item.index == 3,
+               }">
+            <p>{{item.name}}</p>
+          </div>
+          <div *ngIf="isRevealAnswer">
+            <mat-accordion>
+              <mat-expansion-panel (opened)="item.panelOpenState = true"
+                                   (closed)="item.panelOpenState = false">
+                <mat-expansion-panel-header>
+                  <mat-panel-title>
+                    <p>{{item.date}} {{item.dateEnding}}</p>
+                  </mat-panel-title>
+                </mat-expansion-panel-header>
+                <p>{{item.details}} <a href="{{item.link}}" target="_blank">Learn more</a></p>
+              </mat-expansion-panel>
+            </mat-accordion>
+          </div>
         </div>
-        <div *ngIf="isRevealAnswer"
-             class="events-box">
-          <p>{{item.name}}</p>
-        </div>
-        <div *ngIf="isRevealAnswer">
-          <mat-accordion>
-            <mat-expansion-panel (opened)="item.panelOpenState = true"
-                                 (closed)="item.panelOpenState = false">
-              <mat-expansion-panel-header>
-                <mat-panel-title>
-                  <p>{{item.date}} {{item.dateEnding}}</p>
-                </mat-panel-title>
-              </mat-expansion-panel-header>
-              <p>{{item.details}} <a href="{{item.link}}" target="_blank">Learn more</a></p>
-            </mat-expansion-panel>
-          </mat-accordion>
-        </div>
-        }
       </div>
     </div>
     <p><b>Present</b></p>

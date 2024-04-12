@@ -4,11 +4,13 @@ export interface Event {
   dateEnding: string,
   details: string,
   panelOpenState: boolean,
-  link: string
+  link: string,
+  index: number
 }
 
 export const EventDetails: Event[] = [
   {
+    index: 0,
     name: 'Invention of the Poptart',
     date: 1964,
     dateEnding: 'AD',
@@ -17,14 +19,16 @@ export const EventDetails: Event[] = [
     link: 'https://www.poptarts.com/en_US/our-story.html'
   },
   {
-      name: 'Discovery of Machu Picchu',
-      date: 1911,
-      dateEnding: 'AD',
-      details: 'In the summer of 1911, the American archaeologist Hiram Bingham arrived in Peru with a small team of explorers hoping to find Vilcabamba, the last Inca stronghold to fall to the Spanish.',
-      panelOpenState: false,
-      link: 'https://www.history.com/topics/south-america/machu-picchu#machu-picchu-s-discovery-by-hiram-bingham'
+    index: 0,
+    name: 'Discovery of Machu Picchu',
+    date: 1911,
+    dateEnding: 'AD',
+    details: 'In the summer of 1911, the American archaeologist Hiram Bingham arrived in Peru with a small team of explorers hoping to find Vilcabamba, the last Inca stronghold to fall to the Spanish.',
+    panelOpenState: false,
+    link: 'https://www.history.com/topics/south-america/machu-picchu#machu-picchu-s-discovery-by-hiram-bingham'
   },
   {
+    index: 0,
     name: 'First Crossword',
     date: 1913,
     dateEnding: 'AD',
@@ -33,6 +37,7 @@ export const EventDetails: Event[] = [
     link: 'https://blog.mycrosswordmaker.com/the-history-of-crossword-puzzles/'
   },
   {
+    index: 0,
     name: 'Landing on the Moon',
     date: 1969,
     dateEnding: 'AD',
@@ -41,6 +46,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.history.com/topics/1960s/moon-landing-1969'
   },
   {
+    index: 0,
     name: 'Painting of the Mona Lisa',
     date: 1519,
     dateEnding: 'AD',
@@ -49,6 +55,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.britannica.com/topic/Mona-Lisa-painting'
   },
   {
+    index: 0,
     name: 'Discovery of Neptune',
     date: 1846,
     dateEnding: 'AD',
@@ -57,6 +64,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.nasa.gov/history/175-years-ago-astronomers-discover-neptune-the-eighth-planet/'
   },
   {
+    index: 0,
     name: 'Construction of Pyramids of Giza',
     date: 2550,
     dateEnding: 'BCE',
@@ -65,6 +73,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.history.com/topics/ancient-egypt/the-egyptian-pyramids#section_3'
   },
   {
+    index: 0,
     name: 'Invention of the Telescope',
     date: 1608,
     dateEnding: 'AD',
@@ -73,6 +82,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.loc.gov/collections/finding-our-place-in-the-cosmos-with-carl-sagan/articles-and-essays/modeling-the-cosmos/galileo-and-the-telescope#:~:text=While%20there%20is%20evidence%20that,Jacob%20Metius%20independently%20created%20telescopes.'
   },
   {
+    index: 0,
     name: 'Discovery of Uranus',
     date: 1781,
     dateEnding: 'AD',
@@ -81,6 +91,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.nasa.gov/history/240-years-ago-astronomer-william-herschel-identifies-uranus-as-the-seventh-planet/'
   },
   {
+    index: 0,
     name: 'Invention of the Violin',
     date: 1540,
     dateEnding: 'AD',
@@ -89,6 +100,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.theinstrumentplace.com/history-of-the-violin'
   },
   {
+    index: 0,
     name: 'Invention of the Toothbrush',
     date: 1498,
     dateEnding: 'AD',
@@ -97,6 +109,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.loc.gov/everyday-mysteries/technology/item/who-invented-the-toothbrush-and-when-was-it-invented/'
   },
   {
+    index: 0,
     name: 'Invention of the Compass',
     date: 1090,
     dateEnding: 'AD',
@@ -105,6 +118,7 @@ export const EventDetails: Event[] = [
     link: 'https://education.nationalgeographic.org/resource/compass/'
   },
   {
+    index: 0,
     name: 'Invention of Morse Code',
     date: 1838,
     dateEnding: 'AD',
@@ -113,6 +127,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.britannica.com/topic/Morse-Code'
   },
   {
+    index: 0,
     name: 'Discovery of Bronze',
     date: 2200,
     dateEnding: 'BCE',
@@ -121,6 +136,7 @@ export const EventDetails: Event[] = [
     link: 'https://bronzeconnection.com/history-of-bronze/'
   },
   {
+    index: 0,
     name: 'Invention of the Hourglass',
     date: 900,
     dateEnding: 'AD',
@@ -129,6 +145,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.guinnessworldrecords.com/world-records/first-hourglass'
   },
   {
+    index: 0,
     name: 'Invention of the Encyclopedia',
     date: 100,
     dateEnding: 'AD',
@@ -137,6 +154,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.britannica.com/topic/encyclopaedia/History-of-encyclopaedias'
   },
   {
+    index: 0,
     name: 'The Pythagorean Theorem',
     date: 548,
     dateEnding: 'BCE',
@@ -145,6 +163,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.britannica.com/science/Pythagorean-theorem'
   },
   {
+    index: 0,
     name: 'Invention of the Ball Point Pen',
     date: 1888,
     dateEnding: 'AD',
@@ -153,6 +172,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.bbc.com/future/article/20201028-history-of-the-ballpoint-pen'
   },
   {
+    index: 0,
     name: 'Invention of the Celsius Scale',
     date: 1742,
     dateEnding: 'AD',
@@ -161,6 +181,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.britannica.com/biography/Anders-Celsius'
   },
   {
+    index: 0,
     name: 'Lord of the Rings Published (first volume)',
     date: 1954,
     dateEnding: 'AD',
@@ -169,6 +190,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.tolkienestate.com/writing/the-lord-of-the-rings/'
   },
   {
+    index: 0,
     name: 'Publication of Alice in Wonderland',
     date: 1865,
     dateEnding: 'AD',
@@ -177,6 +199,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.britannica.com/topic/Alices-Adventures-in-Wonderland'
   },
   {
+    index: 0,
     name: 'Invention of the Typewriter',
     date: 1868,
     dateEnding: 'AD',
@@ -185,6 +208,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.britannica.com/technology/typewriter'
   },
   {
+    index: 0,
     name: 'Invention of Sign Language',
     date: 1620,
     dateEnding: 'AD',
@@ -193,6 +217,7 @@ export const EventDetails: Event[] = [
     link: 'https://en.wikipedia.org/wiki/History_of_sign_language'
   },
   {
+    index: 0,
     name: 'Invention of the Can Opener',
     date: 1858,
     dateEnding: 'AD',
@@ -201,6 +226,7 @@ export const EventDetails: Event[] = [
     link: 'https://www.smithsonianmag.com/smart-news/why-can-opener-wasnt-invented-until-almost-50-years-after-can-180964590/'
   },
   {
+    index: 0,
     name: 'Painting of the \'Last Supper\' by Leonardo da Vinci',
     date: 1498,
     dateEnding: 'AD',
