@@ -17,7 +17,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "docs",
-            "baseHref": "/swe632-v2/",
+            "baseHref": "/swe632-v3/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
