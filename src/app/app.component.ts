@@ -26,6 +26,10 @@ export interface DialogData {
   lives: number;
 }
 
+export interface HintData {
+  event: Event;
+}
+
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -114,6 +118,14 @@ export class AppComponent implements OnInit {
     this.isRevealAnswer = !this.isRevealAnswer;
   }
 
+  hint(event: Event) {
+    this.dialog.open(HintComponent, {
+              data: {
+                event: event
+              },
+            });
+  }
+
   submit() {
     this.checkTimeline();
     this.dialog.open(DialogComponent, {
@@ -146,6 +158,20 @@ export class DialogComponent {
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {
     this.isCorrect = data.isCorrect;
     this.lives = data.lives;
+  }
+}
+
+@Component({
+  selector: 'hint',
+  templateUrl: 'hint.html',
+  standalone: true,
+  imports: [MatDialogTitle, MatDialogContent, CommonModule],
+})
+export class HintComponent {
+  event: Event;
+
+  constructor(@Inject(MAT_DIALOG_DATA) public data: HintData) {
+    this.event = data.event;
   }
 }
 
