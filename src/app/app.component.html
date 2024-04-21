@@ -156,6 +156,16 @@
     margin: 5px;
   }
 
+  .mat-mdc-raised-button.mat-button {
+    color: white;
+    background-color: var(--gray-700);
+  }
+
+    .mat-mdc-raised-button.mat-button:hover {
+    color: white;
+    background-color: var(--gray-900);
+  }
+
 </style>
 
 <main class="main">
@@ -244,12 +254,12 @@
     </div>
     <p><b>Present</b></p>
     <div class="button-bar">
-      <button *ngIf="!isCorrect" mat-raised-button (click)="submit()">Submit</button>
-      <button *ngIf="!isCorrect" mat-raised-button (click)="giveUp()">Give Up</button>
-      <button *ngIf="isCorrect" mat-raised-button (click)="newGame()">New Game</button>
+      <button *ngIf="!isCorrect" mat-raised-button color="button" (click)="submit()">Submit</button>
+      <button *ngIf="!isCorrect" mat-raised-button color="button" (click)="giveUp()">Give Up</button>
+      <button *ngIf="isCorrect" mat-raised-button color="button" (click)="newGame()">New Game</button>
     </div>
     <div class="button-bar" style="margin-top: .75rem;">
-      <mat-icon *ngFor="let life of [].constructor(lives)" aria-hidden="false" aria-label="life" fontIcon="circle" [ngStyle]="{'color':'#412234'}"></mat-icon>
+      <mat-icon *ngFor="let life of [].constructor(lives)" aria-hidden="false" aria-label="life" fontIcon="circle" [ngStyle]="{'color':'var(--gray-700)'}"></mat-icon>
     </div>
   </div>
 </main>
