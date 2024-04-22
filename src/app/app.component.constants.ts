@@ -287,7 +287,7 @@ export const EventDetails: Event[] = [
       dateEnding: 'AD',
       details: 'In July 1983, I.M. Pei, who had already designed extensions for the Museum of Fine Arts in Boston and the National Gallery of Art in Washington, was appointed architect for the Grand Louvre project, which had been commissioned by French President François Mitterrand in 1981. Pei came up with the idea of a central underground lobby affording direct access to the museum’s three wings, which would transform visitor circulation inside the Louvre.',
       link: 'https://www.louvre.fr/en/explore/the-palace/a-pyramid-for-a-symbol',
-      image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fwww.architectmagazine.com%2Fawards%2Faia-awards%2Flouvre-pyramid-the-folly-that-became-a-triumph_o&psig=AOvVaw0hHlYMab70vHViyJ-yBXpw&ust=1713738875474000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCJjGwfrs0YUDFQAAAAAdAAAAABAD',
+      image: 'https://cdnassets.hw.net/ea/1c/4b8588d34466aa5be5ec41c5f0e2/louvrepyramid-impei-exterior.jpg'
     },
     {
       index: 0,
