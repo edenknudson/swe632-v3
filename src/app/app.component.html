@@ -50,21 +50,14 @@
   }
 
   .events-container {
-    width: 400px;
-    max-height: 400px;
-    max-width: 100%;
-    overflow-y: auto;
-    display: inline-block;
-    vertical-align: top;
+<!--    width: 400px;-->
+<!--    max-width: 100%;-->
+<!--    overflow-y: auto;-->
+<!--    display: inline-block;-->
+<!--    vertical-align: top;-->
   }
 
-  .events-list {
-    border: solid 1px #ccc;
-    min-height: 60px;
-    background: white;
-    border-radius: 4px;
-    overflow: hidden;
-    display: block;
+  .events-container-answer {
   }
 
   .events-box {
@@ -161,7 +154,7 @@
     background-color: var(--gray-700);
   }
 
-    .mat-mdc-raised-button.mat-button:hover {
+  .mat-mdc-raised-button.mat-button:hover {
     color: white;
     background-color: var(--gray-900);
   }
@@ -201,11 +194,10 @@
     </div>
     <p>Place the events in the correct order</p>
     <p><b>Past</b></p>
-    <div class="events-container">
+    <div [ngClass]="!isRevealAnswer ? 'events-container' : 'events-container-answer'">
       <div
         cdkDropList
         [cdkDropListData]="events"
-        class="event-list"
         (cdkDropListDropped)="drop($event)">
         <div *ngFor="let item of events; track item">
           <div *ngIf="!isRevealAnswer" cdkDrag
