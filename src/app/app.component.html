@@ -248,7 +248,7 @@
       <button *ngIf="isCorrect" mat-raised-button color="button" (click)="newGame()">New Game</button>
     </div>
     <div class="button-bar" style="margin-top: .75rem;">
-      <mat-icon *ngFor="let life of [].constructor(lives)" aria-hidden="false" aria-label="life" fontIcon="circle" [ngStyle]="{'color':'var(--gray-700)'}"></mat-icon>
+      <mat-icon *ngFor="let life of [].constructor(lives)" aria-hidden="false" aria-label="life" fontIcon="favorite" [ngStyle]="{'color':'var(--gray-700)'}"></mat-icon>
     </div>
   </div>
 </main>
