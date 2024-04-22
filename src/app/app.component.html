@@ -221,7 +221,6 @@
             <mat-icon aria-hidden="false" aria-label="hint" style="cursor:pointer; padding-right: 5px;"
                       fontIcon="lightbulb" [ngStyle]="{'color':'white'}"
                       (click)="hint(item)">
-
             </mat-icon>
             <p>{{item.name}}</p>
             <mat-icon aria-hidden="false" aria-label="drag" fontIcon="drag_handle" [ngStyle]="{'color':'white'}"></mat-icon>
@@ -234,20 +233,22 @@
                   'event-blue': item.index == 2,
                   'event-green': item.index == 3,
                }">
-            <p>{{item.name}}</p>
-          </div>
-          <div *ngIf="isRevealAnswer">
-            <mat-accordion>
-              <mat-expansion-panel (opened)="item.panelOpenState = true"
-                                   (closed)="item.panelOpenState = false">
-                <mat-expansion-panel-header>
-                  <mat-panel-title>
-                    <p>{{item.date}} {{item.dateEnding}}</p>
-                  </mat-panel-title>
-                </mat-expansion-panel-header>
-                <p>{{item.details}} <a href="{{item.link}}" target="_blank">Learn more</a></p>
-              </mat-expansion-panel>
-            </mat-accordion>
+            <div>
+              <div *ngIf="!isRevealAnswer">
+                <p>{{item.name}}</p>
+              </div>
+              <div *ngIf="isRevealAnswer">
+                <p><b>{{item.name}}</b></p>
+                <p>{{item.date}} {{item.dateEnding}}</p>
+                <p>{{item.details}}</p>
+                <a href="{{item.link}}" target="_blank">
+                  <button mat-raised-button>
+                    Learn more
+                    <mat-icon aria-hidden="false" aria-label="Open in new window" fontIcon="open_in_new" [ngStyle]="{'color':'var(--gray-900)'}"></mat-icon>
+                  </button>
+                </a>
+              </div>
+            </div>
           </div>
         </div>
       </div>
