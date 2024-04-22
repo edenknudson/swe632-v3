@@ -251,7 +251,7 @@ export const EventDetails: Event[] = [
       dateEnding: 'AD',
       details: 'The Sistine Chapel is located inside the Vatican Museums in Rome and every year is visited by millions of tourists from all over the world. The Sistine Chapel is decorated with splendid frescoes by Michelangelo. His wonderful works cover the ceiling and the back wall (with the Last Judgement) above the altar.',
       link: 'https://www.thesistinechapel.org/',
-      image: 'https://www.google.com/url?sa=i&url=https%3A%2F%2Fsmarthistory.org%2Fmichelangelo-ceiling-of-the-sistine-chapel%2F&psig=AOvVaw0zcR5mh8hIaNNcbT1gg6H_&ust=1713738046475000&source=images&cd=vfe&opi=89978449&ved=0CBAQjRxqFwoTCMCG_fDp0YUDFQAAAAAdAAAAABAY',
+      image: 'https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Sistina-interno.jpg/640px-Sistina-interno.jpg'
     },
     {
       index: 0,
