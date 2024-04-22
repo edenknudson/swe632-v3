@@ -23,6 +23,7 @@ import { MatIconModule } from '@angular/material/icon';
 
 export interface DialogData {
   isCorrect: boolean;
+  correctNumber: number;
   lives: number;
 }
 
@@ -40,6 +41,7 @@ export interface HintData {
 export class AppComponent implements OnInit {
   isCheckClicked = false;
   isCorrect = false;
+  correctNumber = 0;
   isRevealAnswer = false;
   events = EventDetails;
   lives = 4;
@@ -61,7 +63,13 @@ export class AppComponent implements OnInit {
   shuffleEvents() {
     const shuffled = EventDetails.sort(() => 0.5 - Math.random())
     this.events = shuffled.slice(0, 4);
+
     let indexValue = 0;
+    this.events.sort(compareDate);
+    this.events.forEach(event => {event.answer = indexValue++});
+    this.events.sort(() => 0.5 - Math.random());
+
+    indexValue = 0;
     this.events.forEach(event => {event.index = indexValue++});
   }
 
@@ -96,15 +104,15 @@ export class AppComponent implements OnInit {
   checkTimeline() {
     this.isCheckClicked = true;
     this.isCorrect = true;
-    let date = Number.MIN_SAFE_INTEGER;
-    for (let element of this.events) {
-      const elementDate = element.dateEnding == 'AD' ? element.date : element.date*-1;
-      if (date > elementDate) {
+    this.correctNumber = 0;
+    let index = 0;
+    this.events.forEach(event => {
+      if (index == event.answer)
+        this.correctNumber++;
+      else
         this.isCorrect = false;
-        break;
-      }
-      date = elementDate;
-    }
+      index++;
+    });
   }
 
   giveUp() {
@@ -131,6 +139,7 @@ export class AppComponent implements OnInit {
     this.dialog.open(DialogComponent, {
           data: {
             isCorrect: this.isCorrect,
+            correctNumber: this.correctNumber,
             lives: this.lives - 1
           },
         });
@@ -153,10 +162,12 @@ export class AppComponent implements OnInit {
 })
 export class DialogComponent {
   isCorrect: boolean;
+  correctNumber: number;
   lives: number;
 
   constructor(@Inject(MAT_DIALOG_DATA) public data: DialogData) {
     this.isCorrect = data.isCorrect;
+    this.correctNumber = data.correctNumber;
     this.lives = data.lives;
   }
 }

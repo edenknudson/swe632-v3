@@ -5,7 +5,8 @@ export interface Event {
   details: string,
   link: string,
   index: number,
-  image: string
+  image: string,
+  answer?: number
 }
 
 export const EventDetails: Event[] = [

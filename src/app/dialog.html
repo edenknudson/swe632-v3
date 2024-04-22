@@ -40,6 +40,7 @@
       <mat-icon aria-hidden="false" aria-label="Correct" fontIcon="block" [ngStyle]="{'color':'red'}"></mat-icon>
       <p>Incorrect</p>
     </div>
+    <p *ngIf="lives > 0">You got {{ correctNumber }}/4 correct</p>
     <p *ngIf="lives > 0">You have {{ lives }} more {{ lives != 1 ? 'guesses' : 'guess'}}</p>
     <p *ngIf="lives == 0">You lose. Try again next time.</p>
   </div>
