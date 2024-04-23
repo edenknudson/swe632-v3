@@ -14,6 +14,7 @@ import {
   MAT_DIALOG_DATA,
   MatDialogTitle,
   MatDialogContent,
+  MatDialogModule
 } from '@angular/material/dialog';
 import { MatExpansionModule } from '@angular/material/expansion';
 import { MatButtonModule } from '@angular/material/button';
@@ -158,7 +159,7 @@ export class AppComponent implements OnInit {
   selector: 'dialog',
   templateUrl: 'dialog.html',
   standalone: true,
-  imports: [MatDialogTitle, MatDialogContent, CommonModule, MatIconModule],
+  imports: [MatDialogTitle, MatDialogContent, CommonModule, MatIconModule, MatDialogModule, MatButtonModule],
 })
 export class DialogComponent {
   isCorrect: boolean;
@@ -176,7 +177,7 @@ export class DialogComponent {
   selector: 'hint',
   templateUrl: 'hint.html',
   standalone: true,
-  imports: [MatDialogTitle, MatDialogContent, CommonModule],
+  imports: [MatDialogTitle, MatDialogContent, CommonModule, MatIconModule, MatDialogModule, MatButtonModule],
 })
 export class HintComponent {
   event: Event;

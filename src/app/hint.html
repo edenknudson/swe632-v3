@@ -16,8 +16,22 @@
     height: 100%;
     width: 100%;
   }
+
+  .dialog-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
 </style>
 
-<mat-dialog-content style="max-width: 600px">
+<mat-dialog-content style="max-width: 600px;">
+  <div mat-dialog-title class="dialog-title">
+    <h2>{{event.name}}</h2>
+    <mat-dialog-actions>
+      <button mat-icon-button aria-label="close dialog" [mat-dialog-close]>
+        <mat-icon>close</mat-icon>
+      </button>
+    </mat-dialog-actions>
+  </div>
   <img [src]="event.image" />
 </mat-dialog-content>

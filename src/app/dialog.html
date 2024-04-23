@@ -24,24 +24,37 @@
   }
 
   .center-values {
-    width:100%;
-    display: flex;
+    width: 100%;
+    display: inline-flex;
     justify-content: center;
+  }
+
+  .dialog-title {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .close {
+    cursor: pointer;
   }
 </style>
 
 <mat-dialog-content>
-  <div *ngIf="isCorrect" style="display: inline-flex">
+  <div *ngIf="isCorrect" class="center-values">
     <mat-icon aria-hidden="false" aria-label="Correct" fontIcon="check_circle" [ngStyle]="{'color':'green'}"></mat-icon>
     <p>Correct! You win!</p>
   </div>
+  <div *ngIf="!isCorrect" class="center-values">
+    <mat-icon aria-hidden="false" aria-label="Correct" fontIcon="block" [ngStyle]="{'color':'red'}"></mat-icon>
+    <p>Incorrect</p>
+  </div>
   <div *ngIf="!isCorrect">
-    <div class="center-values" style="display: inline-flex">
-      <mat-icon aria-hidden="false" aria-label="Correct" fontIcon="block" [ngStyle]="{'color':'red'}"></mat-icon>
-      <p>Incorrect</p>
-    </div>
     <p *ngIf="lives > 0">You got {{ correctNumber }}/4 correct</p>
     <p *ngIf="lives > 0">You have {{ lives }} more {{ lives != 1 ? 'guesses' : 'guess'}}</p>
     <p *ngIf="lives == 0">You lose. Try again next time.</p>
   </div>
+  <mat-dialog-actions class="center-values">
+    <button mat-button [mat-dialog-close] cdkFocusInitial>Ok</button>
+  </mat-dialog-actions>
 </mat-dialog-content>
